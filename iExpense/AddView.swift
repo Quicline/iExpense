@@ -25,7 +25,8 @@ struct AddView: View {
                     TextField("Name", text: $name)
                 }
                 Section {
-                    TextField("Amount", value: $amount, format: .currency(code: "USD")).keyboardType(.decimalPad)
+                    TextField("Amount", value: $amount, format: .currency(code: Locale.current.currency?.identifier ?? "USD"))
+                        .keyboardType(.decimalPad)
                 }
                 Section {
                     Picker("Type", selection: $type) {
